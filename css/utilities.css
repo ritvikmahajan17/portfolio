@@ -1,0 +1,76 @@
+
+:root {
+  --primary: #22D2A0;
+  --secondary: #192824;
+  --background: black;
+  --green: #1FC11B;
+  --yellow: #f3ca8c;
+  --dark-peach: #ff9f68;
+  --red: #f85959;
+  --light-text: #FFFAFA
+}
+
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+.flex1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .card1{
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+} */
+
+
+.card {
+
+  background-color: var(--background);
+  display: block;
+  width: 300px;
+  min-height: 50px;
+  cursor: pointer;
+  padding: 30px 15px;
+  border: 3px solid var(--yellow);
+  box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--dark-peach),
+        20px -20px 0 -3px var(--background), 20px -20px var(--red);
+        /* 30px -30px 0 -3px var(--background), 30px -30px var(--orange),
+        40px -40px 0 -3px var(--background), 40px -40px var(--red); */
+}
+
+.card:hover {
+  animation: shadow-wave 1s ease infinite;
+}
+
+
+
+
+.bg-black{
+  background-color: rgb(0, 0, 0);
+  color:#fff;
+}

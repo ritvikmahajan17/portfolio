@@ -1,0 +1,131 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family: 'Comfortaa', cursive;
+}
+
+ ul{
+  list-style: none;
+}
+
+ a{
+  text-decoration: none;
+  color: #fff;
+}
+
+/* navbar */
+
+.navbar{
+  height: 100px;
+}
+
+.navbar .container{
+  max-width: 1500px;
+}
+
+.navbar .flex1{
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.navbar .info{
+  color: rgba(255,255,255, 0.6);
+}
+
+.navbar ul{
+  display: flex;
+}
+
+.navbar a{
+  padding: 15px;
+  margin: 0 15px;
+  font-size: 20px;
+}
+
+/* showcase */
+
+.showcase{
+  height: 100vh;
+  overflow: hidden;
+}
+
+.showcase .card{
+  background-image: radial-gradient(var(--secondary) 30%, var(--background) 30%);
+  background-size: 2px 3px;
+  font-family: "Archivo", sans-serif;
+  color: var(--light-text);
+}
+
+
+
+.showcase .card h2 {
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-weight: normal;
+}
+
+.showcase .flex1{
+  flex-direction: column;
+}
+
+.showcase .card{
+  margin: 7vh 0;
+}
+
+.intro{
+  font-size: 70px;
+}
+
+.graphic{
+  color:	#f85959;
+}
+
+.graphic:hover{
+  border-bottom: 1px solid #fff;
+}
+
+/* project */
+
+.project .grid{
+  grid-template-columns: 2fr 1fr;
+}
+
+/* anim */
+
+@keyframes shadow-wave {
+  0% {
+    border: 3px solid var(--dark-peach);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--red),
+      20px -20px 0 -3px var(--background), 20px -20px var(--yellow);
+  }
+  20% {
+    border: 3px solid var(--red);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--yellow),
+      20px -20px 0 -3px var(--background), 20px -20px var(--dark-peach);
+  }
+  40% {
+    border: 3px solid var(--yellow);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--dark-peach),
+      20px -20px 0 -3px var(--background), 20px -20px var(--red);
+  }
+  60% {
+    border: 3px solid var(--dark-peach);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--red),
+      20px -20px 0 -3px var(--background), 20px -20px var(--yellow);
+  }
+  80% {
+    bborder: 3px solid var(--red);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--yellow),
+      20px -20px 0 -3px var(--background), 20px -20px var(--dark-peach);
+  }
+  100% {
+    border: 3px solid var(--yellow);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--dark-peach),
+      20px -20px 0 -3px var(--background), 20px -20px var(--red);
+}

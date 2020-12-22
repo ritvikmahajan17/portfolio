@@ -78,6 +78,11 @@ body{
   margin: 7vh 0;
 }
 
+.showcase-text a{
+  text-align: center;  
+  font-size: 30px;
+}
+
 .intro{
   font-size: 70px;
 }

@@ -170,6 +170,13 @@ body{
 
 }
 
+@media (max-width:375px) {
+  .showcase .intro{
+    margin-left: 5vw;
+    font-size: 49px;
+  }
+}
+
 @media (max-width:320px){
 
   .navbar{

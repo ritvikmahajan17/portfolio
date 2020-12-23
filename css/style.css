@@ -76,7 +76,7 @@ body{
 }
 
 .intro{
-  font-size: 70px;  
+  font-size: 70px;
 }
 
 .graphic{
@@ -145,6 +145,10 @@ body{
 
   .navbar  ul{
     padding: 10px;
+  }
+
+  .navbar a{
+    font-size: 20px;
   }
 
   .showcase .intro{

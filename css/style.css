@@ -172,6 +172,7 @@ body{
 
 @media (max-width:375px) {
   .showcase .intro{
+    margin-top: -100px;
     margin-left: 5vw;
     font-size: 49px;
   }

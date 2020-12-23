@@ -24,6 +24,7 @@ body{
 }
 
 .navbar .container{
+  overflow: hidden;
   max-width: 1500px;
 }
 
@@ -44,7 +45,7 @@ body{
 .navbar a{
   padding: 15px;
   margin: 0 15px;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 /* showcase */
@@ -61,15 +62,6 @@ body{
   color: var(--light-text);
 }
 
-
-
-.showcase .card h2 {
-    font-size: 30px;
-    text-align: center;
-    font-family: 'Comfortaa', cursive;
-    font-weight: normal;
-}
-
 .showcase .flex1{
   flex-direction: column;
 }
@@ -79,12 +71,12 @@ body{
 }
 
 .showcase-text a{
-  text-align: center;  
+  text-align: center;
   font-size: 30px;
 }
 
 .intro{
-  font-size: 70px;
+  font-size: 70px;  
 }
 
 .graphic{
@@ -93,12 +85,6 @@ body{
 
 .graphic:hover{
   border-bottom: 1px solid #fff;
-}
-
-/* project */
-
-.project .grid{
-  grid-template-columns: 2fr 1fr;
 }
 
 /* anim */
@@ -133,4 +119,76 @@ body{
     border: 3px solid var(--yellow);
     box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--dark-peach),
       20px -20px 0 -3px var(--background), 20px -20px var(--red);
+  }
+}
+
+@media(max-width:1077px){
+  .showcase .intro{
+    margin-left: 7vw;
+  }
+}
+
+@media(max-width:507px){
+
+  .navbar{
+    height:100px;
+  }
+
+  .navbar .flex{
+    flex-direction: column;
+  }
+
+  .navbar .info{
+    align-self: center;
+    padding-bottom: 10px;
+  }
+
+  .navbar  ul{
+    padding: 10px;
+  }
+
+  .showcase .intro{
+    font-size: 49px;
+  }
+
+  .showcase .card{
+    width: 200px;
+    padding: 15px 10px;
+  }
+
+  .showcase-text a{
+    font-size: 20px;
+  }
+
+  .showcase .flex1 .card{
+    margin-right: 20px
+  }
+
+}
+
+@media (max-width:320px){
+
+  .navbar{
+    height: 120px;
+  }
+
+  .navbar a{
+    margin: 0 10px;
+  }
+
+  .showcase .intro{
+    margin-left: 0;
+    font-size: 40px;
+  }
+
+  .showcase .card{
+    width:150px;
+    padding: 10px 7px;
+  }
+
+  .showcase-text a{
+    font-size: 18px;
+  }
+
+
 }

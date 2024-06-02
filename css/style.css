@@ -142,6 +142,10 @@ a {
     flex-direction: column;
   }
 
+  .navbar .flex1 {
+    align-items: center;
+  }
+
   .navbar .info {
     align-self: center;
     padding-bottom: 10px;
@@ -179,6 +183,9 @@ a {
     margin-left: 5vw;
     font-size: 49px;
   }
+  .navbar .flex1 {
+    align-items: center;
+  }
 }
 
 @media (max-width: 320px) {
@@ -202,5 +209,8 @@ a {
 
   .showcase-text a {
     font-size: 18px;
+  }
+  .navbar .flex1 {
+    align-items: center;
   }
 }

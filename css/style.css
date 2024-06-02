@@ -1,48 +1,48 @@
-*{
+* {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-  font-family: 'Comfortaa', cursive;
+body {
+  font-family: "Comfortaa", cursive;
 }
 
- ul{
+ul {
   list-style: none;
 }
 
- a{
+a {
   text-decoration: none;
   color: #fff;
 }
 
 /* navbar */
 
-.navbar{
+.navbar {
   height: 100px;
 }
 
-.navbar .container{
+.navbar .container {
   overflow: hidden;
   max-width: 1500px;
 }
 
-.navbar .flex1{
+.navbar .flex1 {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
 
-.navbar .info{
-  color: rgba(255,255,255, 0.6);
+.navbar .info {
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.navbar ul{
+.navbar ul {
   display: flex;
 }
 
-.navbar a{
+.navbar a {
   padding: 15px;
   margin: 0 15px;
   font-size: 30px;
@@ -50,44 +50,46 @@ body{
 
 /* showcase */
 
-.showcase{
+.showcase {
   height: 100vh;
   overflow: hidden;
 }
 
-.showcase .card{
-  background-image: radial-gradient(var(--secondary) 30%, var(--background) 30%);
+.showcase .card {
+  background-image: radial-gradient(
+    var(--secondary) 30%,
+    var(--background) 30%
+  );
   background-size: 2px 3px;
   font-family: "Archivo", sans-serif;
   color: var(--light-text);
 }
 
-.showcase .flex1{
+.showcase .flex1 {
   flex-direction: column;
 }
 
-.showcase .card{
+.showcase .card {
   margin: 7vh 0;
 }
 
-.showcase-text a{
+.showcase-text a {
   text-align: center;
   font-size: 30px;
 }
 
-.intro{
+.intro {
   text-align: center;
   font-size: 80px;
 }
 
-.graphic{
-  color:	#f85959;
+.graphic {
+  color: #f85959;
 }
 
-.graphic:hover{
+.graphic:hover {
   border-bottom: 1px solid #fff;
 }
-
 /* anim */
 
 @keyframes shadow-wave {
@@ -103,8 +105,9 @@ body{
   }
   40% {
     border: 3px solid var(--yellow);
-    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--dark-peach),
-      20px -20px 0 -3px var(--background), 20px -20px var(--red);
+    box-shadow: 10px -10px 0 -3px var(--background),
+      10px -10px var(--dark-peach), 20px -20px 0 -3px var(--background),
+      20px -20px var(--red);
   }
   60% {
     border: 3px solid var(--dark-peach);
@@ -118,90 +121,86 @@ body{
   }
   100% {
     border: 3px solid var(--yellow);
-    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--dark-peach),
-      20px -20px 0 -3px var(--background), 20px -20px var(--red);
+    box-shadow: 10px -10px 0 -3px var(--background),
+      10px -10px var(--dark-peach), 20px -20px 0 -3px var(--background),
+      20px -20px var(--red);
   }
 }
 
-@media(max-width:1077px){
-  .showcase .intro{
+@media (max-width: 1077px) {
+  .showcase .intro {
     margin-left: 7vw;
   }
 }
 
-@media(max-width:507px){
-
-  .navbar{
-    height:100px;
+@media (max-width: 507px) {
+  .navbar {
+    height: 100px;
   }
 
-  .navbar .flex{
+  .navbar .flex {
     flex-direction: column;
   }
 
-  .navbar .info{
+  .navbar .info {
     align-self: center;
     padding-bottom: 10px;
   }
 
-  .navbar  ul{
+  .navbar ul {
     padding: 10px;
   }
 
-  .navbar a{
+  .navbar a {
     font-size: 20px;
   }
 
-  .showcase .intro{
+  .showcase .intro {
     font-size: 49px;
   }
 
-  .showcase .card{
+  .showcase .card {
     width: 200px;
     padding: 15px 10px;
   }
 
-  .showcase-text a{
+  .showcase-text a {
     font-size: 20px;
   }
 
-  .showcase .flex1 .card{
-    margin-right: 20px
+  .showcase .flex1 .card {
+    margin-right: 20px;
   }
-
 }
 
-@media (max-width:375px) {
-  .showcase .intro{
+@media (max-width: 375px) {
+  .showcase .intro {
     margin-top: -100px;
     margin-left: 5vw;
     font-size: 49px;
   }
 }
 
-@media (max-width:320px){
-
-  .navbar{
+@media (max-width: 320px) {
+  .navbar {
     height: 120px;
   }
 
-  .navbar a{
+  .navbar a {
     margin: 0 10px;
   }
 
-  .showcase .intro{
+  .showcase .intro {
     margin-left: 0;
     font-size: 40px;
   }
 
-  .showcase .card{
-    width:150px;
+  .showcase .card {
+    width: 150px;
     padding: 10px 7px;
   }
 
-  .showcase-text a{
+  .showcase-text a {
     font-size: 18px;
   }
-
-
 }

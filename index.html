@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/747d9b2e2b.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://kit.fontawesome.com/747d9b2e2b.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2F30LMGPVR"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2F30LMGPVR"
+    ></script>
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag('config', 'G-2F30LMGPVR');
-  </script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/brand.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Archivo:700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/utilities.css">
+      gtag("config", "G-2F30LMGPVR");
+    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/brand.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Archivo:700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/utilities.css" />
     <title>Ritvik Mahajan</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
-  <body>   
-
+  <body>
     <div class="navbar bg-black">
       <div class="container flex">
         <div class="flex1">
@@ -36,13 +55,19 @@
             </ul>
           </nav>
           <div class="info">
-            <p>CS undergrad</p>
+            <p id="designation">peeking into his work domain...</p>
           </div>
         </div>
-        <div class="links ">
-          <a href="https://github.com/ritvikmahajan17/" target="_blank"><i class="fab fa-github fa-1g"></i></a>
-          <a href="https://www.linkedin.com/in/ritvik-mahajan-b13679179/" target="_blank"><i class="fab fa-linkedin fa-1g"></i></a>
-          <a href="https://www.leetcode.com/ritvikmahajan17/" target="_blank"> <i class="cib-leetcode"></i> </a>
+        <div class="links">
+          <a href="https://github.com/ritvikmahajan17/" target="_blank"
+            ><i class="fab fa-github fa-1g"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/ritvikmahajan17/" target="_blank"
+            ><i class="fab fa-linkedin fa-1g"></i
+          ></a>
+          <a href="https://www.leetcode.com/ritvikmahajan17/" target="_blank">
+            <i class="cib-leetcode"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -50,11 +75,20 @@
     <section class="showcase bg-black">
       <div class="container flex">
         <div class="showcase-text flex1">
-          <p class="intro">Hi, I am a <span class="graphic">20 </span>year old, <span class="graphic">Software developer.</span></p>
-          <a class="card" style="font-family:'Comfortaa', cursive;" href="Ritvik's Resume.pdf" download="Ritvik's Resume.pdf">Resume</a>
+          <p class="intro">
+            Hi, I am a <span class="graphic" id="age"></span>&nbsp;year old,
+            <span class="graphic">Software Engineer.</span>
+          </p>
+          <a
+            class="card"
+            style="font-family: 'Comfortaa', cursive"
+            target="_blank"
+            id="resume"
+            >Resume</a
+          >
         </div>
       </div>
     </section>
-
+    <script src="script.js"></script>
   </body>
 </html>

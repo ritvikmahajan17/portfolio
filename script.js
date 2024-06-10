@@ -33,3 +33,14 @@ const renderData = async () => {
 };
 
 renderData();
+
+function trackButtonClick() {
+  console.log("Track button click");
+  gtag("event", "download_resume", {
+    event_category: "resume",
+    event_label: "resume_download",
+  });
+}
+
+// Add event listener to the button
+document.getElementById("resume").addEventListener("click", trackButtonClick);

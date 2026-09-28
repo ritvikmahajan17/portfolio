@@ -14,13 +14,105 @@ ul {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: var(--ui-text);
+}
+
+/* animated background */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--base);
+}
+
+.backdrop > * {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: var(--video-filter);
+}
+
+.bg-tint {
+  background: var(--tint);
+  mix-blend-mode: multiply;
+}
+
+.bg-lines {
+  background-image: repeating-linear-gradient(
+    48deg,
+    rgba(255, 255, 255, 0.1) 0px,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  mix-blend-mode: soft-light;
+}
+
+.bg-grain {
+  opacity: 0.32;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.bg-scrim {
+  background: radial-gradient(
+    95% 62% at 50% 52%,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.12) 60%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
+
+/* theme switcher */
+
+.themes {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 5;
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(8px);
+}
+
+.themes button {
+  font-family: "Comfortaa", cursive;
+  font-size: 13px;
+  color: var(--ui-muted);
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+
+.themes button[aria-pressed="true"] {
+  color: #0b0f1c;
+  background: var(--ui-text);
+}
+
+.themes button:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
 }
 
 /* navbar */
 
 .navbar {
   height: 100px;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
 }
 
 .navbar .container {
@@ -35,7 +127,7 @@ a {
 }
 
 .navbar .info {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--ui-muted);
 }
 
 .navbar ul {
@@ -81,14 +173,15 @@ a {
 .intro {
   text-align: center;
   font-size: 80px;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.5);
 }
 
 .graphic {
-  color: #f85959;
+  color: var(--ui-accent);
 }
 
 .graphic:hover {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--ui-accent);
 }
 /* anim */
 

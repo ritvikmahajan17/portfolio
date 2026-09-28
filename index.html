@@ -87,6 +87,14 @@
     />
   </head>
   <body>
+    <div class="backdrop" aria-hidden="true">
+      <video id="bg-video" autoplay muted loop playsinline preload="auto"></video>
+      <div class="bg-tint"></div>
+      <div class="bg-lines"></div>
+      <div class="bg-grain"></div>
+      <div class="bg-scrim"></div>
+    </div>
+
     <div class="navbar bg-black">
       <div class="container flex">
         <div class="flex1">
@@ -131,6 +139,13 @@
         </div>
       </div>
     </section>
+
+    <div class="themes" role="group" aria-label="Background">
+      <button type="button" data-theme="cumulus" aria-pressed="true">Clouds</button>
+      <button type="button" data-theme="milkyway" aria-pressed="false">Milky way</button>
+      <button type="button" data-theme="surf" aria-pressed="false">Surf</button>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

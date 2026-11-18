@@ -1,0 +1,24 @@
+# Rebuilds rm17.work every morning so the Strava tag shows fresh numbers.
+# Render's build step (python3 tools/strava_stats.py) does the fetching;
+# this only pokes the deploy hook. Set it once:
+#   gh secret set RENDER_DEPLOY_HOOK -R ritvikmahajan17/portfolio
+name: Refresh Strava stats
+
+on:
+  schedule:
+    - cron: "30 0 * * *" # 06:00 IST
+  workflow_dispatch: # "Run workflow" button, for a refresh on demand
+
+permissions: {}
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy
+        env:
+          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "RENDER_DEPLOY_HOOK secret is not set"; exit 1; fi
+          curl -fsS -X POST "$HOOK" > /dev/null
+          echo "Render deploy triggered"

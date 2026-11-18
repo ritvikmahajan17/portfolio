@@ -1,47 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script
-      src="https://kit.fontawesome.com/747d9b2e2b.js"
-      crossorigin="anonymous"
-    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-2F30LMGPVR"
-    ></script>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2F30LMGPVR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-2F30LMGPVR");
     </script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/brand.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Archivo:700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/utilities.css" />
+
     <title>Ritvik Mahajan | Software Engineer, McKinsey & Company</title>
     <meta
       name="description"
@@ -76,74 +48,88 @@
         "sameAs": [
           "https://github.com/ritvikmahajan17/",
           "https://www.linkedin.com/in/ritvikmahajan17/",
-          "https://www.leetcode.com/ritvikmahajan17/"
+          "https://www.leetcode.com/ritvikmahajan17/",
+          "https://blog.rm17.work/"
         ]
       }
     </script>
+    <link rel="shortcut icon" href="https://s3.ap-south-1.amazonaws.com/rm17.work/favicon.ico" type="image/x-icon" />
+    <meta name="theme-color" content="#3d3c3a" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="shortcut icon"
-      href="https://s3.ap-south-1.amazonaws.com/rm17.work/favicon.ico"
-      type="image/x-icon"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="backdrop" aria-hidden="true">
-      <video id="bg-video" autoplay muted loop playsinline preload="auto"></video>
-      <div class="bg-tint"></div>
-      <div class="bg-lines"></div>
-      <div class="bg-grain"></div>
-      <div class="bg-scrim"></div>
-    </div>
+    <!-- roughens the chalk circle and note -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <filter id="chalk">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="3" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" />
+      </filter>
+    </svg>
 
-    <div class="navbar bg-black">
-      <div class="container flex">
-        <div class="flex1">
-          <nav>
-            <ul>
-              <h1 class="logo">Ritvik Mahajan</h1>
-            </ul>
-          </nav>
-          <div class="info">
-            <p id="designation">Software Engineer, McKinsey & Company</p>
+    <div class="spread">
+      <main class="letter-page">
+        <header class="dateline">
+          <span id="today">Bengaluru</span>
+          <span class="where">rm17.work</span>
+        </header>
+
+        <h1><span>Ritvik</span><span>Mahajan</span></h1>
+
+        <section class="letter">
+          <div>
+            <p class="intro">I'm a software engineer at McKinsey &amp; Company in Bengaluru.</p>
+            <p class="intro">
+              I build AI tools for healthcare and pharma teams. On the side, I make
+              <a class="inline" href="things.html">a lot of things</a>, and write about how some of them work on
+              <a class="inline" href="https://blog.rm17.work" target="_blank" rel="noopener">my blog</a>.
+            </p>
           </div>
-        </div>
-        <div class="links">
-          <a href="https://github.com/ritvikmahajan17/" target="_blank"
-            ><i class="fab fa-github fa-1g"></i
-          ></a>
-          <a href="https://www.linkedin.com/in/ritvikmahajan17/" target="_blank"
-            ><i class="fab fa-linkedin fa-1g"></i
-          ></a>
-          <a href="https://www.leetcode.com/ritvikmahajan17/" target="_blank">
-            <i class="cib-leetcode"></i>
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <section class="showcase bg-black">
-      <div class="container flex">
-        <div class="showcase-text flex1">
-          <p class="intro">
-            Hi, I am a <span class="graphic" id="age"></span>&nbsp;year old,
-            <span class="graphic">Software Engineer.</span>
-          </p>
-          <a
-            class="card"
-            style="font-family: 'Comfortaa', cursive"
-            target="_blank"
-            id="resume"
-            href="Ritvik_Mahajan_SWE_July_2026.pdf"
-            >Resume</a
-          >
-        </div>
-      </div>
-    </section>
+          <dl class="facts">
+            <dt>Now</dt>
+            <dd>McKinsey &amp; Company, since 2024</dd>
+            <dt>Before</dt>
+            <dd>Devtron, 2023</dd>
+            <dt>Studied</dt>
+            <dd>Computer science, Thapar University</dd>
+            <dt>Age</dt>
+            <dd id="age">24</dd>
+          </dl>
+        </section>
 
-    <div class="themes" role="group" aria-label="Background">
-      <button type="button" data-theme="cumulus" aria-pressed="true">Clouds</button>
-      <button type="button" data-theme="milkyway" aria-pressed="false">Milky way</button>
-      <button type="button" data-theme="surf" aria-pressed="false">Surf</button>
+        <ul class="links">
+          <li>
+            <span class="resume">
+              <a id="resume" href="Ritvik_Mahajan_SWE_July_2026.pdf" target="_blank">Resume</a>
+              <svg class="ring" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <path pathLength="1" d="M58 9 C 26 4, 2 22, 5 52 C 8 84, 52 96, 82 86 C 104 77, 101 30, 80 14 C 70 7, 54 6, 41 10" />
+                <path class="arrow" pathLength="1" d="M50 94 C 50 104, 52 112, 55 120" />
+              </svg>
+              <span class="note" aria-hidden="true">start here</span>
+            </span>
+          </li>
+          <li><a href="https://github.com/ritvikmahajan17/" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/ritvikmahajan17/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.leetcode.com/ritvikmahajan17/" target="_blank" rel="noopener">LeetCode</a></li>
+        </ul>
+      </main>
+
+      <!-- Photo: Pexels 6740823, free under the Pexels License -->
+      <figure class="photo">
+        <img
+          src="img/kit.jpg"
+          width="1600"
+          height="1066"
+          alt="Workout kit laid out on a concrete floor: black trainers, a watch, resistance bands, a skipping rope, straps and a smoothie."
+        />
+      </figure>
     </div>
 
     <script src="script.js"></script>

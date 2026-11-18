@@ -1,309 +1,300 @@
+:root {
+  --concrete: #3d3c3a;
+  --ink: #ecebe6; /* chalk white */
+  --faded: rgba(236, 235, 230, 0.6);
+  --rule: rgba(236, 235, 230, 0.18);
+  --orange: #f0572b; /* from the resistance bands in the photo */
+  --type: "Courier Prime", "Courier New", monospace;
+  --wood: "Archivo", "Arial Narrow", sans-serif;
+  --hand: "Nanum Pen Script", cursive;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  background: var(--concrete);
+}
+
+/* concrete: light and dark grit, and uneven patches, like the floor in the photo */
 body {
-  font-family: "Comfortaa", cursive;
+  min-height: 100vh;
+  min-height: 100svh;
+  color: var(--ink);
+  font: 400 clamp(15px, 0.45vw + 12.5px, 18px) / 1.6 var(--type);
+  background-color: var(--concrete);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='l'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.86  0 0 0 0 0.85  0 0 0 0 0.82  9 0 0 0 -5.7'/%3E%3C/filter%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 0 0.08  -9 0 0 0 3.6'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url%28%23l%29' opacity='0.22'/%3E%3Crect width='300' height='300' filter='url%28%23d%29' opacity='0.55'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0045' numOctaves='3' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.62  0 0 0 0 0.61  0 0 0 0 0.59  0 0 0 0.8 -0.36'/%3E%3C/filter%3E%3Crect width='900' height='900' filter='url%28%23b%29'/%3E%3C/svg%3E");
+  background-size: 300px 300px, cover; /* grit tiles; the big patches stretch once, so no seams */
+  background-repeat: repeat, no-repeat;
+  background-attachment: scroll, fixed;
+  -webkit-font-smoothing: antialiased;
 }
 
-ul {
-  list-style: none;
+a:focus-visible {
+  outline: 2px dashed var(--orange);
+  outline-offset: 4px;
 }
 
-a {
-  text-decoration: none;
-  color: var(--ui-text);
+/* plain underlined links: in sentences, the links row, the things list */
+.inline,
+.links a,
+.thing a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.22em;
+}
+.links a,
+.thing a {
+  font-weight: 700;
+}
+.inline:hover,
+.links a:hover,
+.thing a:hover {
+  color: var(--orange);
 }
 
-/* animated background */
-
-.backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  background: var(--base);
+/* big names, in chalk white: speckled where it didn't take on the grit */
+h1 {
+  font: 900 clamp(4rem, 10.5vw, 11rem) / 0.8 var(--wood);
+  font-stretch: 62%;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow: 0 0 1px rgba(236, 235, 230, 0.4);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.32' numOctaves='3' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -16 0 0 0 11.6'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23s)'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.32' numOctaves='3' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -16 0 0 0 11.6'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23s)'/%3E%3C/svg%3E");
+  margin-left: -0.03em;
+}
+h1 span {
+  display: block;
+}
+h1 span + span {
+  margin-left: 0.5em; /* set by hand, not centred */
 }
 
-.backdrop > * {
+/* ---------- home: the letter on concrete, the kit photo beside it ---------- */
+
+.spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 47vw;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.photo {
+  margin: 0;
+  position: relative;
+  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.35);
+}
+.photo img {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-}
-
-#bg-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: var(--video-filter);
+  object-position: 50% 50%;
+  display: block;
 }
 
-.bg-tint {
-  background: var(--tint);
-  mix-blend-mode: multiply;
+.letter-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(28px, 6vh, 72px) clamp(22px, 5vw, 72px);
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: clamp(28px, 5vh, 56px);
+}
+.letter-page h1 {
+  align-self: end;
 }
 
-.bg-lines {
-  background-image: repeating-linear-gradient(
-    48deg,
-    rgba(255, 255, 255, 0.1) 0px,
-    rgba(255, 255, 255, 0.1) 1px,
-    transparent 1px,
-    transparent 6px
-  );
-  mix-blend-mode: soft-light;
-}
-
-.bg-grain {
-  opacity: 0.32;
-  mix-blend-mode: soft-light;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.bg-scrim {
-  background: radial-gradient(
-    95% 62% at 50% 52%,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.12) 60%,
-    rgba(0, 0, 0, 0.45) 100%
-  );
-}
-
-/* theme switcher */
-
-.themes {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 5;
+.dateline {
   display: flex;
-  gap: 6px;
-  padding: 6px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  background: rgba(0, 0, 0, 0.42);
-  backdrop-filter: blur(8px);
+  justify-content: space-between;
+  gap: 2ch;
+  color: var(--faded);
 }
 
-.themes button {
-  font-family: "Comfortaa", cursive;
-  font-size: 13px;
-  color: var(--ui-muted);
-  background: none;
-  border: 0;
-  border-radius: 999px;
-  padding: 7px 13px;
-  cursor: pointer;
+.letter {
+  display: grid;
+  grid-template-columns: minmax(0, 33rem);
+  gap: clamp(20px, 3.5vh, 32px);
 }
-
-.themes button[aria-pressed="true"] {
-  color: #0b0f1c;
-  background: var(--ui-text);
-}
-
-.themes button:focus-visible {
-  outline: 2px solid var(--ui-accent);
-  outline-offset: 2px;
-}
-
-/* navbar */
-
-.navbar {
-  height: 100px;
-  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
-}
-
-.navbar .container {
-  overflow: hidden;
-  max-width: 1500px;
-}
-
-.navbar .flex1 {
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.navbar .info {
-  color: var(--ui-muted);
-}
-
-.navbar ul {
-  display: flex;
-}
-
-.navbar a {
-  padding: 15px;
-  margin: 0 15px;
-  font-size: 30px;
-}
-
-/* showcase */
-
-.showcase {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.showcase .card {
-  background-image: radial-gradient(
-    var(--secondary) 30%,
-    var(--background) 30%
-  );
-  background-size: 2px 3px;
-  font-family: "Archivo", sans-serif;
-  color: var(--light-text);
-}
-
-.showcase .flex1 {
-  flex-direction: column;
-}
-
-.showcase .card {
-  margin: 7vh 0;
-}
-
-.showcase-text a {
-  text-align: center;
-  font-size: 30px;
-}
-
 .intro {
-  text-align: center;
-  font-size: 80px;
-  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.5);
+  max-width: 33rem;
+  text-wrap: pretty;
+}
+.intro + .intro {
+  margin-top: 1em;
 }
 
-.graphic {
-  color: var(--ui-accent);
+.facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.15rem 2ch;
+}
+.facts dt {
+  color: var(--faded);
 }
 
-.graphic:hover {
-  border-bottom: 1px solid var(--ui-accent);
-}
-/* anim */
-
-@keyframes shadow-wave {
-  0% {
-    border: 3px solid var(--dark-peach);
-    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--red),
-      20px -20px 0 -3px var(--background), 20px -20px var(--yellow);
-  }
-  20% {
-    border: 3px solid var(--red);
-    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--yellow),
-      20px -20px 0 -3px var(--background), 20px -20px var(--dark-peach);
-  }
-  40% {
-    border: 3px solid var(--yellow);
-    box-shadow: 10px -10px 0 -3px var(--background),
-      10px -10px var(--dark-peach), 20px -20px 0 -3px var(--background),
-      20px -20px var(--red);
-  }
-  60% {
-    border: 3px solid var(--dark-peach);
-    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--red),
-      20px -20px 0 -3px var(--background), 20px -20px var(--yellow);
-  }
-  80% {
-    bborder: 3px solid var(--red);
-    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--yellow),
-      20px -20px 0 -3px var(--background), 20px -20px var(--dark-peach);
-  }
-  100% {
-    border: 3px solid var(--yellow);
-    box-shadow: 10px -10px 0 -3px var(--background),
-      10px -10px var(--dark-peach), 20px -20px 0 -3px var(--background),
-      20px -20px var(--red);
-  }
+.links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 3ch;
+  padding-bottom: 2.4rem; /* room for the chalk note */
 }
 
-@media (max-width: 1077px) {
-  .showcase .intro {
-    margin-left: 7vw;
+/* the one handmade moment: chalk circles the resume, once */
+.resume {
+  position: relative;
+  display: inline-block;
+}
+.ring {
+  position: absolute;
+  left: -22%;
+  top: -48%;
+  width: 144%;
+  height: 196%;
+  overflow: visible;
+  pointer-events: none;
+  filter: url(#chalk);
+}
+.ring path {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-dasharray: 1 2; /* gap longer than the line, so an undrawn ring leaves no dot */
+  stroke-dashoffset: 1;
+  opacity: 0.85;
+  animation: draw 0.9s cubic-bezier(0.55, 0.1, 0.35, 1) 0.9s forwards;
+}
+.ring .arrow {
+  animation-delay: 1.75s;
+  animation-duration: 0.35s;
+}
+.note {
+  position: absolute;
+  left: 50%;
+  top: 128%;
+  white-space: nowrap;
+  font: 400 clamp(22px, 1.9vw, 28px) / 1 var(--hand);
+  color: var(--orange);
+  transform: rotate(-4deg);
+  filter: url(#chalk);
+  clip-path: inset(-40% 100% -40% 0);
+  animation: write 0.7s steps(10) 2.05s forwards;
+  pointer-events: none;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
   }
 }
-
-@media (max-width: 507px) {
-  .navbar {
-    height: 100px;
-  }
-
-  .navbar .flex {
-    flex-direction: column;
-  }
-
-  .navbar .flex1 {
-    align-items: center;
-  }
-
-  .navbar .info {
-    align-self: center;
-    padding-bottom: 10px;
-  }
-
-  .navbar ul {
-    padding: 10px;
-  }
-
-  .navbar a {
-    font-size: 20px;
-  }
-
-  .showcase .intro {
-    font-size: 49px;
-  }
-
-  .showcase .card {
-    width: 200px;
-    padding: 15px 10px;
-  }
-
-  .showcase-text a {
-    font-size: 20px;
-  }
-
-  .showcase .flex1 .card {
-    margin-right: 20px;
+@keyframes write {
+  to {
+    clip-path: inset(-40% 0 -40% 0);
   }
 }
 
-@media (max-width: 375px) {
-  .showcase .intro {
-    margin-top: -100px;
-    margin-left: 5vw;
-    font-size: 49px;
+/* ---------- things I've made ---------- */
+
+.things-page {
+  max-width: 60rem;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(28px, 6vh, 72px) clamp(22px, 5vw, 72px);
+}
+.back {
+  color: var(--faded);
+  text-decoration: none;
+}
+.back:hover {
+  color: var(--orange);
+}
+.things-page h1 {
+  font-size: clamp(3.4rem, 11vw, 8.5rem);
+  margin: clamp(36px, 8vh, 80px) 0 clamp(12px, 2vh, 20px);
+}
+.lede {
+  color: var(--faded);
+  max-width: 36rem;
+}
+.things {
+  list-style: none;
+  margin-top: clamp(32px, 6vh, 64px);
+  border-top: 1px solid var(--rule);
+}
+.thing {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) auto;
+  gap: 6px 3ch;
+  align-items: baseline;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.thing h2 {
+  font: 800 1.5rem / 1.1 var(--wood);
+  font-stretch: 85%;
+  letter-spacing: -0.01em;
+}
+.thing p {
+  color: var(--faded);
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+.thing a {
+  white-space: nowrap;
+}
+.more {
+  color: var(--faded);
+  margin-top: 1.6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring path,
+  .note {
+    animation: none;
   }
-  .navbar .flex1 {
-    align-items: center;
+  .ring path {
+    stroke-dashoffset: 0;
+  }
+  .note {
+    clip-path: none;
   }
 }
 
-@media (max-width: 320px) {
-  .navbar {
-    height: 120px;
+@media (max-width: 760px) {
+  .spread {
+    grid-template-columns: 1fr;
   }
-
-  .navbar a {
-    margin: 0 10px;
+  .photo {
+    order: -1;
+    height: 46vh;
+    height: 46svh;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
   }
-
-  .showcase .intro {
-    margin-left: 0;
-    font-size: 40px;
+  .letter-page {
+    min-height: 0;
+    grid-template-rows: auto;
   }
-
-  .showcase .card {
-    width: 150px;
-    padding: 10px 7px;
+  .letter-page h1 {
+    font-size: 22vw;
   }
-
-  .showcase-text a {
-    font-size: 18px;
+  h1 span + span {
+    margin-left: 0.25em;
   }
-  .navbar .flex1 {
-    align-items: center;
+  .dateline .where {
+    display: none;
+  }
+  .thing {
+    grid-template-columns: 1fr;
   }
 }

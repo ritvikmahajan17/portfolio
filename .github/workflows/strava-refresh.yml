@@ -1,7 +1,7 @@
-# Rebuilds rm17.work every morning so the Strava tag shows fresh numbers.
-# Render's build step (python3 tools/strava_stats.py) does the fetching;
-# this only pokes the deploy hook. Set it once:
-#   gh secret set RENDER_DEPLOY_HOOK -R ritvikmahajan17/portfolio
+# Refreshes the Strava receipt on rm17.work every morning.
+# Fetches this year's totals into strava.json and commits it only if the numbers
+# changed; that push is what makes Render redeploy the site.
+# Secrets (already set): STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN
 name: Refresh Strava stats
 
 on:
@@ -9,16 +9,30 @@ on:
     - cron: "30 0 * * *" # 06:00 IST
   workflow_dispatch: # "Run workflow" button, for a refresh on demand
 
-permissions: {}
+permissions:
+  contents: write # to commit strava.json
 
 jobs:
-  redeploy:
+  refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Render deploy
+      - uses: actions/checkout@v4
+
+      - name: Fetch Strava totals
         env:
-          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+        run: python3 tools/strava_stats.py
+
+      - name: Commit if the numbers changed
         run: |
-          if [ -z "$HOOK" ]; then echo "RENDER_DEPLOY_HOOK secret is not set"; exit 1; fi
-          curl -fsS -X POST "$HOOK" > /dev/null
-          echo "Render deploy triggered"
+          # the date inside strava.json changes daily; only commit when km, runs or hours do
+          if git diff --quiet -I '"updated"' -- strava.json; then
+            echo "No new runs, nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore: refresh Strava stats"
+          git push

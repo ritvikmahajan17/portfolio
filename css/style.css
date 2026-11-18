@@ -271,47 +271,87 @@ h1 span + span {
   }
 }
 
-/* a small race tag pinned to the bottom-left of the photo, links to Strava */
+/* the Strava tag as a thermal run receipt: dotted leaders, a big total, a barcode, a torn bottom */
 .strava {
+  --tear: 5px;
   position: absolute;
   left: clamp(18px, 3vw, 44px);
   bottom: clamp(18px, 4vh, 44px);
+  width: 11.5rem;
   display: grid;
-  gap: 0.15rem;
-  padding: 0.7rem 0.9rem 0.65rem 1rem;
-  background: #f4f2ec;
+  gap: 0.05rem;
+  padding: 0.5rem 0.75rem calc(0.4rem + var(--tear));
+  background: #f6f4ee;
   color: #1c1a17;
   text-decoration: none;
-  font-size: 0.82em;
-  line-height: 1.35;
-  border-left: 5px solid #fc4c02; /* Strava orange */
-  transform: rotate(-2deg);
-  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.25), 6px 12px 20px rgba(0, 0, 0, 0.4);
+  font-size: 0.68em;
+  line-height: 1.25;
+  transform: rotate(-3deg);
+  filter: drop-shadow(2px 3px 0 rgba(0, 0, 0, 0.22)) drop-shadow(6px 12px 14px rgba(0, 0, 0, 0.4));
+  /* torn zigzag bottom edge */
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--tear)) 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--tear)) 100%;
   transition: transform 0.25s ease;
 }
 .strava:hover {
-  transform: rotate(-1deg) translateY(-2px);
+  transform: rotate(-1.5deg) translateY(-3px);
 }
 .strava[hidden] {
   display: none;
 }
-.strava-year {
-  color: #6b655c;
+.r-head {
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
+  border-bottom: 1.5px dashed rgba(28, 26, 23, 0.45);
 }
-.strava-stats {
+.r-row {
   display: flex;
-  gap: 2.2ch;
   align-items: baseline;
+  gap: 0.6ch;
 }
-.strava b {
-  font: 900 2rem / 1 var(--wood);
+.r-row i {
+  flex: 1;
+  border-bottom: 2px dotted rgba(28, 26, 23, 0.4);
+}
+/* runs and time get real numbers too, just smaller than the km */
+.r-row > span:last-child {
+  font: 900 1.25rem / 1 var(--wood);
   font-stretch: 75%;
   letter-spacing: -0.01em;
-  margin-right: 0.15em;
+}
+.r-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1.5px dashed rgba(28, 26, 23, 0.45);
+  margin-top: 0.15rem;
+  padding-top: 0.2rem;
+  font-weight: 700;
+}
+.r-total b {
+  font: 900 2.3rem / 0.9 var(--wood);
+  font-stretch: 75%;
+  letter-spacing: -0.01em;
+  color: #fc4c02; /* Strava orange */
+}
+.r-code {
+  height: 0.8rem;
+  margin: 0.25rem 0 0.1rem;
+  background: repeating-linear-gradient(90deg, #1c1a17 0 2px, #0000 2px 3px, #1c1a17 3px 4px, #0000 4px 7px, #1c1a17 7px 10px, #0000 10px 11px);
+  opacity: 0.85;
 }
 .strava-go {
-  color: #fc4c02;
+  text-align: center;
   font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.22em;
+}
+.strava:hover .strava-go {
+  color: #fc4c02;
 }
 @media (prefers-reduced-motion: reduce) {
   .strava {

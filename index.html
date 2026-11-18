@@ -143,13 +143,12 @@
 
         <!-- this year's running, from strava.json (written by tools/strava_stats.py); hidden until it loads -->
         <a class="strava" href="https://www.strava.com/athletes/191169905" target="_blank" rel="noopener" hidden>
-          <span class="strava-year"><span id="s-year"></span> on Strava</span>
-          <span class="strava-stats">
-            <span><b id="s-km"></b> km</span>
-            <span><b id="s-runs"></b> runs</span>
-            <span><b id="s-hours"></b> hours</span>
-          </span>
-          <span class="strava-go">Follow my runs</span>
+          <span class="r-head">Running, <span id="s-year"></span></span>
+          <span class="r-row"><span>Runs</span><i></i><span id="s-runs"></span></span>
+          <span class="r-row"><span>Time</span><i></i><span><span id="s-hours"></span> h</span></span>
+          <span class="r-total"><span>Total</span><b><span id="s-km"></span> km</b></span>
+          <span class="r-code" aria-hidden="true"></span>
+          <span class="strava-go">Follow on Strava</span>
         </a>
       </figure>
     </div>

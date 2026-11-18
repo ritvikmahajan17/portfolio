@@ -61,7 +61,7 @@ a:focus-visible {
 
 /* big names, in chalk white: speckled where it didn't take on the grit */
 h1 {
-  font: 900 clamp(4rem, 10.5vw, 11rem) / 0.8 var(--wood);
+  font: 900 clamp(4rem, 9.8vw, 10.5rem) / 0.8 var(--wood);
   font-stretch: 62%;
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -104,10 +104,10 @@ h1 span + span {
 .letter-page {
   min-height: 100vh;
   min-height: 100svh;
-  padding: clamp(28px, 6vh, 72px) clamp(22px, 5vw, 72px);
+  padding: clamp(24px, 5vh, 64px) clamp(22px, 5vw, 72px);
   display: grid;
   grid-template-rows: auto 1fr auto auto;
-  gap: clamp(28px, 5vh, 56px);
+  gap: clamp(22px, 4vh, 48px);
 }
 .letter-page h1 {
   align-self: end;
@@ -123,11 +123,25 @@ h1 span + span {
 .letter {
   display: grid;
   grid-template-columns: minmax(0, 33rem);
-  gap: clamp(20px, 3.5vh, 32px);
+  gap: clamp(18px, 3vh, 28px);
 }
 .intro {
   max-width: 33rem;
   text-wrap: pretty;
+}
+/* the McKinsey logo pasted into the sentence like a cut-out: white paper, a slight tilt, a shadow */
+.cutout {
+  display: inline-block;
+  width: 5.6em;
+  height: auto;
+  box-sizing: content-box;
+  padding: 0.45em 0.6em;
+  margin: 0 0.25em;
+  vertical-align: middle;
+  background: #fff;
+  transform: rotate(-2deg);
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.25), 4px 8px 14px rgba(0, 0, 0, 0.35);
+  clip-path: polygon(0 4%, 3% 0, 97% 2%, 100% 0, 99% 96%, 96% 100%, 2% 98%, 0 100%);
 }
 .intro + .intro {
   margin-top: 1em;
@@ -141,6 +155,60 @@ h1 span + span {
 .facts dt {
   color: var(--faded);
 }
+
+/* promotions, like LinkedIn: newest on top, a dot per role, joined by a line */
+.path-label {
+  color: var(--faded);
+  margin-bottom: 0.5rem;
+}
+.path ol {
+  list-style: none;
+}
+.path li {
+  position: relative;
+  padding: 0 0 0.45em 2.2ch;
+  line-height: 1.4;
+  color: var(--faded);
+  white-space: nowrap;
+}
+.path li:last-child {
+  padding-bottom: 0;
+}
+.path li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(0.7em - 4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--faded);
+}
+/* the line from this dot down to the next one */
+.path li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: calc(0.7em + 7px);
+  bottom: calc(-0.7em + 7px);
+  border-left: 2px solid var(--rule);
+}
+/* dates in the same orange chalk hand as "start here" */
+.path .when {
+  display: inline-block;
+  width: 2.6em; /* same width for every year, so the titles line up */
+  font: 400 1.3em / 1 var(--hand);
+  color: var(--orange);
+  transform: rotate(-3deg);
+  filter: url(#chalk);
+}
+.path li[aria-current] {
+  color: var(--ink);
+}
+.path li[aria-current]::before {
+  background: var(--orange);
+}
+
 
 .links {
   list-style: none;
@@ -200,6 +268,54 @@ h1 span + span {
 @keyframes write {
   to {
     clip-path: inset(-40% 0 -40% 0);
+  }
+}
+
+/* a small race tag pinned to the bottom-left of the photo, links to Strava */
+.strava {
+  position: absolute;
+  left: clamp(18px, 3vw, 44px);
+  bottom: clamp(18px, 4vh, 44px);
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 0.9rem 0.65rem 1rem;
+  background: #f4f2ec;
+  color: #1c1a17;
+  text-decoration: none;
+  font-size: 0.82em;
+  line-height: 1.35;
+  border-left: 5px solid #fc4c02; /* Strava orange */
+  transform: rotate(-2deg);
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.25), 6px 12px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease;
+}
+.strava:hover {
+  transform: rotate(-1deg) translateY(-2px);
+}
+.strava[hidden] {
+  display: none;
+}
+.strava-year {
+  color: #6b655c;
+}
+.strava-stats {
+  display: flex;
+  gap: 2.2ch;
+  align-items: baseline;
+}
+.strava b {
+  font: 900 2rem / 1 var(--wood);
+  font-stretch: 75%;
+  letter-spacing: -0.01em;
+  margin-right: 0.15em;
+}
+.strava-go {
+  color: #fc4c02;
+  font-weight: 700;
+}
+@media (prefers-reduced-motion: reduce) {
+  .strava {
+    transition: none;
   }
 }
 

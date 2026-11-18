@@ -14,3 +14,16 @@ document.getElementById("resume").addEventListener("click", () => {
     event_label: "resume_download",
   });
 });
+
+// this year's running totals, refreshed daily into strava.json
+fetch("strava.json")
+  .then((r) => (r.ok ? r.json() : Promise.reject()))
+  .then((s) => {
+    const set = (id, v) => (document.getElementById(id).textContent = v.toLocaleString("en-IN"));
+    document.getElementById("s-year").textContent = s.year;
+    set("s-km", s.km);
+    set("s-runs", s.runs);
+    set("s-hours", s.hours);
+    document.querySelector(".strava").hidden = false;
+  })
+  .catch(() => {}); // no stats yet: the tag stays hidden
